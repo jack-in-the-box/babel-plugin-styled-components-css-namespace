@@ -1,16 +1,15 @@
 import * as t from '@babel/types';
 import {
-  isStyled,
   isCSSHelper,
+  isHelper,
   isInjectGlobalHelper,
-  isPureHelper,
   isKeyframesHelper,
-  isHelper
+  isPureHelper,
+  isStyled
 } from 'babel-plugin-styled-components/lib/utils/detectors';
-import { loopWhile } from 'deasync';
 import postcss from 'postcss';
-import parentSelector from 'postcss-parent-selector';
 import unnest from 'postcss-nested';
+import parentSelector from 'postcss-parent-selector';
 import safeParser from 'postcss-safe-parser';
 
 const EXPRESSION = 'fake-element-placeholder';
@@ -107,19 +106,19 @@ export default (path, state) => {
 
   let formattedCss = null;
   let potentialError = null;
-  postcss(processors)
-    .process(`\n${prefix} {${originalStyleString}}\n`, {
-      from: undefined // clears warning about SourceMap and Browserlist from postcss
-    })
-    .then(value => (formattedCss = value.css))
-    .catch(error => {
-      potentialError = `There was a problem adding namespaces to this CSS in the file ${
-        state.file.opts.filename
-      }. Error: ${error.message}\n CSS: ${originalStyleString}`;
-      formattedCss = 'ERROR';
-    });
-  // Allows us to turn the async promise into synchronous code for the purpose of the plugin
-  loopWhile(() => formattedCss === null);
+  try {
+    formattedCss = postcss(processors).process(
+      `\n${prefix} {${originalStyleString}}\n`,
+      {
+        from: undefined // clears warning about SourceMap and Browserlist from postcss
+      }
+    ).css;
+  } catch (err) {
+    potentialError = `There was a problem adding namespaces to this CSS in the file ${
+      state.file.opts.filename
+    }. Error: ${error.message}\n CSS: ${originalStyleString}`;
+    formattedCss = 'ERROR';
+  }
 
   // If the css couldn't be parsed abort the plugin with an error.
   if (potentialError) {
