@@ -1,6 +1,6 @@
 {
-  "name": "@quickbaseoss/babel-plugin-styled-components-css-namespace",
-  "version": "1.0.0-rc4",
+  "name": "@jitb/babel-plugin-styled-components-css-namespace",
+  "version": "1.0.0",
   "description": "A babel plugin to add css namespaces to all styled components.",
   "keywords": [
     "styled-components",
@@ -18,9 +18,6 @@
   },
   "bugs": {
     "url": "https://github.com/QuickBase/babel-plugin-styled-components-css-namespace/issues"
-  },
-  "engines": {
-    "node": "<=12.4.0"
   },
   "main": "lib/index.js",
   "files": [
@@ -148,7 +145,6 @@
   "dependencies": {
     "@babel/types": "^7.5.0",
     "babel-plugin-styled-components": "1.10.x",
-    "deasync": "0.1.x",
     "postcss": "7.0.x",
     "postcss-nested": "4.1.x",
     "postcss-parent-selector": "1.0.x",
