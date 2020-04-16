@@ -37,12 +37,12 @@
     "clean": "rimraf lib",
     "build": "babel src -d lib --ignore src/tests,src/vendor",
     "test": "jest",
-    "test:watch": "yarn run test -- --watch",
-    "test:snap": "yarn run test -- --updateSnapshot",
-    "prepare": "yarn run clean && yarn run build",
+    "test:watch": "npm run test -- --watch",
+    "test:snap": "npm run test -- --updateSnapshot",
+    "prepare": "npm run clean && npm run build",
     "precommit": "lint-staged",
-    "lint": "yarn run lint:js",
-    "lint:js": "yarn run lint:eslint -- . ",
+    "lint": "npm run lint:js",
+    "lint:js": "npm run lint:eslint -- . ",
     "lint:eslint": "eslint --ignore-path .eslintignore"
   },
   "husky": {
@@ -53,7 +53,7 @@
   "lint-staged": {
     "*.js": [
       "prettier --single-quote --write",
-      "yarn run lint:eslint",
+      "npm run lint:eslint",
       "git add"
     ]
   },
