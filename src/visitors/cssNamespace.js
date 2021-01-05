@@ -113,7 +113,7 @@ export default (path, state) => {
         from: undefined // clears warning about SourceMap and Browserlist from postcss
       }
     ).css;
-  } catch (err) {
+  } catch (error) {
     potentialError = `There was a problem adding namespaces to this CSS in the file ${
       state.file.opts.filename
     }. Error: ${error.message}\n CSS: ${originalStyleString}`;
