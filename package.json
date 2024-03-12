@@ -1,5 +1,5 @@
 {
-  "name": "@jitb/babel-plugin-styled-components-css-namespace",
+  "name": "@jack-in-the-box/babel-plugin-styled-components-css-namespace",
   "version": "1.0.0",
   "description": "A babel plugin to add css namespaces to all styled components.",
   "keywords": [
@@ -10,14 +10,11 @@
     "css-specificity"
   ],
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/QuickBase/babel-plugin-styled-components-css-namespace"
-  },
-  "bugs": {
-    "url": "https://github.com/QuickBase/babel-plugin-styled-components-css-namespace/issues"
+    "url": "https://github.com/jack-in-the-box/babel-plugin-styled-components-css-namespace"
   },
   "main": "lib/index.js",
   "files": [
