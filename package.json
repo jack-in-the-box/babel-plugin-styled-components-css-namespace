@@ -1,6 +1,6 @@
 {
   "name": "@jack-in-the-box/babel-plugin-styled-components-css-namespace",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "A babel plugin to add css namespaces to all styled components.",
   "keywords": [
     "styled-components",
@@ -42,18 +42,6 @@
     "lint:js": "npm run lint:eslint -- . ",
     "lint:eslint": "eslint --ignore-path .eslintignore"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --write",
-      "npm run lint:eslint",
-      "git add"
-    ]
-  },
   "babel": {
     "presets": [
       [
@@ -67,67 +55,6 @@
       "@babel/preset-react"
     ]
   },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": [
-      "prettier",
-      "plugin:react/recommended"
-    ],
-    "env": {
-      "browser": false,
-      "node": true,
-      "jest": true,
-      "es6": true
-    },
-    "plugins": [
-      "prettier",
-      "react"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module"
-    },
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true
-        }
-      ],
-      "arrow-body-style": [
-        2,
-        "as-needed"
-      ],
-      "comma-dangle": [
-        2,
-        "never"
-      ],
-      "indent": [
-        0,
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "max-len": 0,
-      "newline-per-chained-call": 0,
-      "no-confusing-arrow": 0,
-      "no-console": 1,
-      "no-use-before-define": 0,
-      "prefer-template": 2,
-      "class-methods-use-this": 0,
-      "require-yield": 0,
-      "quotes": [
-        2,
-        "single",
-        {
-          "avoidEscape": true,
-          "allowTemplateLiterals": true
-        }
-      ],
-      "no-unused-vars": 2
-    }
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.js"
@@ -140,34 +67,28 @@
     }
   },
   "dependencies": {
-    "@babel/types": "^7.5.0",
-    "babel-plugin-styled-components": "1.10.x",
-    "postcss": "7.0.x",
-    "postcss-nested": "4.1.x",
-    "postcss-parent-selector": "1.0.x",
-    "postcss-safe-parser": "4.0.x"
+    "babel-plugin-styled-components": "2.1.x",
+    "postcss": "8.4.x",
+    "postcss-nested": "6.2.x",
+    "postcss-safe-parser": "7.0.x"
   },
   "devDependencies": {
-    "@babel/cli": "7.2.x",
-    "@babel/core": "7.2.x",
-    "@babel/preset-env": "7.3.x",
-    "@babel/preset-react": "7.0.x",
-    "babel-eslint": "10.0.x",
-    "babel-jest": "24.1.x",
-    "babel-plugin-tester": "6.2.x",
-    "eslint": "5.13.x",
-    "eslint-config-prettier": "4.3.x",
-    "eslint-plugin-prettier": "3.1.x",
-    "eslint-plugin-react": "7.12.x",
-    "husky": "1.3.x",
-    "jest": "24.8.x",
-    "jest-styled-components": "6.3.x",
-    "lint-staged": "8.1.x",
-    "prettier": "1.17.x",
-    "react": "16.8.x",
-    "react-dom": "16.8.x",
-    "react-test-renderer": "16.8.x",
-    "rimraf": "2.6.x",
-    "styled-components": "4.2.x"
+    "@babel/types": "^7.25.2",
+    "@babel/cli": "7.24.x",
+    "@babel/core": "7.25.x",
+    "@babel/preset-env": "7.25.x",
+    "@babel/preset-react": "7.24.x",
+    "babel-jest": "29.7.x",
+    "babel-plugin-tester": "11.0.x",
+    "husky": "9.1.x",
+    "jest": "29.7.x",
+    "jest-styled-components": "7.2.x",
+    "lint-staged": "15.2.x",
+    "prettier": "3.3.x",
+    "react": "18.3.x",
+    "react-dom": "18.3.x",
+    "react-test-renderer": "18.3.x",
+    "rimraf": "6.0.x",
+    "styled-components": "6.1.x"
   }
 }
