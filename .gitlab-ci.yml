@@ -1,0 +1,17 @@
+include:
+  - project: "xait-france/infra-k8s"
+    ref: main
+    file: "/gitlab/jobs/security-scanning.gitlab-ci.yml"
+  - project: "xait-france/infra-k8s"
+    ref: main
+    file: "/gitlab/jobs/npm-publish.gitlab-ci.yml"
+
+stages:
+  - assert
+  - publish
+
+npm-assert-version:
+  extends: .npm-assert-version
+
+npm-publish:
+  extends: .npm-publish
